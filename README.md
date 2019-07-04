@@ -1,2 +1,1 @@
-# node_vue_mongo
-学习vue的相关知识
+# 这个仓库用于记录学习vue，mongo和node方面的知识 #
