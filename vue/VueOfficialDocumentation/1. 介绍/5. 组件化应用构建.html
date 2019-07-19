@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ol>
+        <todo-item></todo-item>
+    </ol>
+
+</div>
+<script>
+
+    // 在vue里面，一个vue组件本质上就是一个vue实例。
+    Vue.component('todo-item', {
+        props: [],
+        methods: {
+            get() {
+                alert('点我 + get()')
+            }
+        },
+        template: '<li>这是个代办项</li><br><button @click="get">点我</button>'
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+
+    })
+</script>
+</body>
+</html>

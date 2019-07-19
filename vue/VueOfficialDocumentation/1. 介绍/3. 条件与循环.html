@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>点击显示或隐藏一句话</h2>
+    <button @click="showStatementMethod">{{message}}下面的话</button>
+    <br/>
+    <span v-if="showStatement"> 你能看到我了</span>
+
+    <hr/>
+    <h2>使用v-for遍历数组</h2>
+    <ol>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+        </li>
+    </ol>
+
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: '隐藏',
+            showStatement: true,
+            todos: [
+                {text: '学习 JavaScript'},
+                {text: '学习 Vue'},
+                {text: '整个牛项目'}
+            ]
+        },
+        methods: {
+            showStatementMethod() {
+                let hide = '隐藏';
+                let show = '显示';
+                if (this.showStatement === true) {
+                    this.showStatement = false
+                    this.message = show
+                } else {
+                    this.showStatement = true;
+                    this.message = hide;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

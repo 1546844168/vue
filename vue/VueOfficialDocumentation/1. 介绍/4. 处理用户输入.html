@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h2>逆转消息</h2>
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+    <hr/>
+    <h2>与表单双向绑定</h2>
+    <p>{{ person.username }}</p>
+    <input v-model="person.username">
+</div>
+<script>
+    var app5 = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!',
+            person: {
+                username: '江峰'
+            }
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</body>
+</html>

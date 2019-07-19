@@ -1,4 +1,4 @@
-require("./../utils/db_conn");
+// require("./../utils/db_conn");
 
 let DepartmentModel = require("./../model/department");
 let EmployeeModel = require("./../model/employee");
@@ -75,6 +75,7 @@ async function findEmployeeInDepartment(departmentId) {
     //     }
     //     // console.log(result)
     // });
+
     let employees = await EmployeeModel.find({dep: departmentId}).exec();
     if (employees) {
         console.log('employees = ' + employees)
