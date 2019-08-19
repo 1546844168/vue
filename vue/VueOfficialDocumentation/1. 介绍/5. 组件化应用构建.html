@@ -7,28 +7,57 @@
 </head>
 <body>
 <div id="app">
+    <!--
+        <ol>
+            &lt;!&ndash;
+              现在我们为每个 todo-item 提供 todo 对象
+              todo 对象是变量，即其内容可以是动态的。
+              我们也需要为每个组件提供一个“key”，稍后再
+              作详细解释。
+            &ndash;&gt;
+            <todo-item
+                    v-for="item in groceryList"
+                    v-bind:todo="item"
+                    v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+    -->
     <ol>
-        <todo-item></todo-item>
+        <todo-item
+                v-for="item in groceryList"
+                v-bind:todo=item
+                key:item.id
+        ></todo-item>
     </ol>
 
 </div>
 <script>
 
     // 在vue里面，一个vue组件本质上就是一个vue实例。
+    /*
+        Vue.component('todo-item', {
+            props: ['todo'],
+            methods: {
+                get() {
+                    alert('点我 + get()')
+                }
+            },
+            template: '<li>这是个代办项</li><br><button @click="get">点我</button>'
+        })
+    */
     Vue.component('todo-item', {
-        props: [],
-        methods: {
-            get() {
-                alert('点我 + get()')
-            }
-        },
-        template: '<li>这是个代办项</li><br><button @click="get">点我</button>'
+        props: ['todo'],
+        template: '<div><li>这是一个待办事项 + {{todo.text}}}</li></div>'
     })
     var app = new Vue({
         el: '#app',
-        data: {},
-        methods: {},
-
+        data: {
+            groceryList: [
+                {id: 0, text: '蔬菜'},
+                {id: 1, text: '奶酪'},
+                {id: 2, text: '随便其它什么人吃的东西'}
+            ]
+        }
     })
 </script>
 </body>

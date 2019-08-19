@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>js显示时间</title>
+</head>
+<body>
+<div id="divBottom"></div>
+<script type="text/javascript">
+    //获取当天日期
+    function date() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hour = "00" + date.getHours();
+        hour = hour.substr(hour.length - 2);
+        var minute = "00" + date.getMinutes();
+        minute = minute.substr(minute.length - 2);
+        var second = "00" + date.getSeconds();
+        second = second.substr(second.length - 2);
+        // var week=date.getDay();
+        document.getElementById("divBottom").innerHTML = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
+
+    setInterval("date()", 1000);
+</script>
+</body>
+</html>
